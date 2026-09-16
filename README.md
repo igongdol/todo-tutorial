@@ -4,7 +4,14 @@
 
 ## 프로젝트 소개
 
-할 일을 추가·완료·삭제할 수 있는 간단한 Todo 앱입니다. Server Components 를 우선으로 사용하고 클라이언트 상태는 최소화하는 구조를 지향하며, `d` 키로 다크 모드를 전환할 수 있습니다.
+할 일을 추가·완료·삭제할 수 있는 Todo 앱입니다. Server Components 를 우선으로 사용하고 클라이언트 상태는 최소화하는 구조를 지향하며, 다음과 같은 기능을 제공합니다.
+
+- 할 일 추가 / 완료 토글 / 삭제
+- 우선순위(높음·보통·낮음) 및 마감일 지정
+- 카테고리(업무·개인·쇼핑) 분류 및 필터링
+- 진행중 / 완료 상태 필터, 제목 검색
+- 생성일순 · 이름순 · 마감일순 정렬
+- `d` 키로 다크 모드 전환
 
 ## 관련 링크
 
@@ -16,9 +23,10 @@
 - Next.js 16 (App Router, Turbopack)
 - React 19
 - Tailwind CSS v4
-- shadcn/ui (radix-maia 스타일, taupe 베이스)
+- shadcn/ui (radix-mira 스타일, taupe 베이스, phosphor 아이콘)
 - TypeScript / ESLint / Prettier
-- 패키지 매니저: bun 1.3.6
+- Vitest / Testing Library
+- 패키지 매니저: bun
 
 ## 시작하기
 
@@ -39,14 +47,17 @@ bun run lint       # ESLint
 bun run typecheck  # tsc --noEmit
 bun run format     # Prettier 포맷팅
 bun run test       # Vitest 테스트 실행
+bun run test:watch # Vitest watch 모드
 ```
 
-## 챕터별 시작 브랜치
+## 프로젝트 구조
 
-각 레슨은 시작 시점의 코드 상태를 브랜치로 제공합니다. 레슨 본문에서 안내하는 브랜치로 전환한 뒤 따라가시면 됩니다.
-
-```shell
-git checkout ch02-03
+```
+app/                  # App Router 엔트리 (page, layout, globals.css)
+components/           # Todo 관련 컴포넌트 및 테스트
+components/ui/        # shadcn/ui 컴포넌트
+lib/                  # 타입 정의, 정렬/검색 유틸리티
+hooks/                # 커스텀 훅
 ```
 
 ## 컴포넌트 추가
